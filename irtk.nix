@@ -23,5 +23,5 @@ stdenv.mkDerivation rec {
   '';
 
   enableParallelBuilding = true;
-  buildInputs = [ cmake gsl fltk boost libGL freeglut xorg.libXmu libjpeg gtest ];
+  buildInputs = [ cmake gsl fltk boost libGL libGLU freeglut xorg.libXmu libjpeg gtest ];
 }
