@@ -22,6 +22,8 @@ stdenv.mkDerivation rec {
     make test
   '';
 
+  NIX_CFLAGS_COMPILE = "-Wno-error=narrowing";
+
   enableParallelBuilding = true;
   buildInputs = [ cmake gsl fltk boost libGL libGLU freeglut xorg.libXmu libjpeg gtest ];
 }
