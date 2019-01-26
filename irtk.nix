@@ -1,4 +1,4 @@
-{ stdenv, cmake, lib, gsl, fltk, boost, mesa, freeglut, xorg, libjpeg, gtest, fetchFromGitHub }:
+{ stdenv, cmake, lib, gsl, fltk, boost, libGL, freeglut, xorg, libjpeg, gtest, fetchFromGitHub }:
 stdenv.mkDerivation rec {
   version = "1.0";
   name = "irtk-${version}";
@@ -23,5 +23,5 @@ stdenv.mkDerivation rec {
   '';
 
   enableParallelBuilding = true;
-  buildInputs = [ cmake gsl fltk boost mesa freeglut xorg.libXmu libjpeg gtest ];
+  buildInputs = [ cmake gsl fltk boost libGL freeglut xorg.libXmu libjpeg gtest ];
 }
