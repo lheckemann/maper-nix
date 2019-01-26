@@ -1,4 +1,4 @@
-{ stdenv, cmake, lib, gsl, fltk, boost, libGL, freeglut, xorg, libjpeg, gtest, fetchFromGitHub }:
+{ stdenv, cmake, lib, gsl, fltk, boost, libGL, libGLU, freeglut, xorg, libjpeg, gtest, fetchFromGitHub }:
 stdenv.mkDerivation rec {
   version = "1.0";
   name = "irtk-${version}";
