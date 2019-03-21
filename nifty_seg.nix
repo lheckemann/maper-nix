@@ -1,16 +1,15 @@
-{ stdenv, lib, fetchurl, cmake, unzip }:
+{ stdenv, lib, fetchFromGitHub, pkgconfig, cmake, zlib, eigen }:
 stdenv.mkDerivation rec {
-  version = "0.9.4";
+  version = "1.0";
   name = "nifty_seg-${version}";
-  src = fetchurl {
-    url = "mirror://sourceforge/niftyseg/NiftySeg_${version}.zip";
-    sha256 = "1rmf2aakcw203w42gy3zlyl53xqrq8ps7w953880r847xadmvdz7";
+  src = fetchFromGitHub {
+    owner = "KCL-BMEIS";
+    repo = "NiftySeg";
+    rev = "v${version}";
+    sha256 = "0zyjfk707i0p6zsipbj5bl2a2zkyx6r3ndviqg7daxx5b2mn2fql";
   };
-  unpackPhase = ''
-    mkdir src
-    cd src
-    unzip $src
-  '';
-  buildInputs = [ cmake unzip ];
+  buildInputs = [ cmake eigen zlib ];
+  nativeBuildInputs = [ pkgconfig ];
+  cmakeFlags = ["-DBUILD_Z=OFF"];
   enableParallelBuilding = true;
 }
