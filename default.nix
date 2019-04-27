@@ -13,4 +13,5 @@ rec {
     };
   });
   pincram = callPackage ./pincram.nix { inherit irtk; };
+  xmedcon = callPackage ./xmedcon.nix {};
 }
