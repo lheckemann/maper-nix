@@ -1,6 +1,10 @@
 { pkgs ? import <nixpkgs> {} }: with pkgs;
-rec {
+let
+callPackage = newScope self;
+self = {
   irtk = callPackage ./irtk.nix {};
+  itk5 = callPackage ./itk5.nix {};
+  kwstyle = callPackage ./kwstyle.nix {};
   nifty_reg = callPackage ./nifty_reg.nix {};
   nifty_seg = callPackage ./nifty_seg.nix {};
   nifty_seg_git = nifty_seg.overrideAttrs (o: {
@@ -12,6 +16,7 @@ rec {
       sha256 = "01iyyf8j2p3m2siycdxscs3ss1b0clqnpasbxyggmsk87507xvii";
     };
   });
-  pincram = callPackage ./pincram.nix { inherit irtk; };
+  pincram = callPackage ./pincram.nix {};
   xmedcon = callPackage ./xmedcon.nix {};
-}
+};
+in self
