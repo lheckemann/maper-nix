@@ -2,6 +2,7 @@
 let
 callPackage = newScope self;
 self = {
+  ants = callPackage ./ants.nix {};
   irtk = callPackage ./irtk.nix {};
   itk5 = callPackage ./itk5.nix {};
   kwstyle = callPackage ./kwstyle.nix {};
