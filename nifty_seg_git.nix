@@ -1,4 +1,4 @@
-{ stdenv, lib, fetchFromGitHub, pkgconfig, cmake, zlib, eigen }:
+{ stdenv, lib, fetchFromGitHub, pkg-config, cmake, zlib, eigen }:
 stdenv.mkDerivation rec {
   version = "git";
   name = "nifty_seg-${version}";
@@ -9,7 +9,7 @@ stdenv.mkDerivation rec {
     sha256 = "01iyyf8j2p3m2siycdxscs3ss1b0clqnpasbxyggmsk87507xvii";
   };
   buildInputs = [ cmake eigen zlib ];
-  nativeBuildInputs = [ pkgconfig ];
+  nativeBuildInputs = [ pkg-config ];
   enableParallelBuilding = true;
   cmakeFlags = ["-DBUILD_Z=OFF"];
 }
