@@ -1,4 +1,4 @@
-{ stdenv, fetchurl, zlib, libpng, pkgconfig, glib, gtk2 }:
+{ stdenv, fetchurl, zlib, libpng, pkg-config, glib, gtk2 }:
 stdenv.mkDerivation rec {
   pname = "xmedcon";
   version = "0.16.1";
@@ -7,5 +7,5 @@ stdenv.mkDerivation rec {
     sha256 = "049srl7hmxz00yy64j9ib371vl7ra32c6fm1dl5qx5r38023yzbn";
   };
   buildInputs = [ zlib libpng glib gtk2 ];
-  nativeBuildInputs = [ pkgconfig ];
+  nativeBuildInputs = [ pkg-config ];
 }
